@@ -1,0 +1,10 @@
+services:
+  - name: laravel-app
+    type: web
+    env: docker
+    repo:  https://github.com/Suryansh9331/laravel_product_crud
+    plan: free
+    autoDeploy: true
+    disk:
+      name: data
+      mountPath: /var/www/html/storage
