@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -31,5 +31,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add'); // Add to Cart
     Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove'); // Remove from Cart
     Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
+  
+});
 
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
+    Route::get('/order/{id}', [OrderController::class, 'show'])->name('order.show');
+    Route::get('/orders/summary', [OrderController::class, 'orderSummary'])->name('order.summary');
+     Route::post('/order/place', [OrderController::class, 'placeOrder'])->name('order.place');
 });
