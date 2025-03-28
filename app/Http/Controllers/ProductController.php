@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -9,7 +10,7 @@ class ProductController extends Controller
 {
     // Display all products
     public function index()
-    {   $products = Product::paginate(2); 
+    {   $products = Product::paginate(8); 
         // $products = Product::all();
         return view('products.index', compact('products'));             
     }
