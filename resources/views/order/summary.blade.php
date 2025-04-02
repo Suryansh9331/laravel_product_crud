@@ -35,6 +35,7 @@
 
         <form action="{{ route('order.place') }}" method="POST">
             @csrf
+            <input type="hidden" name="total" value ="{{$total}}">
             <button type="submit" class="btn btn-success mt-3"> Confirm & Place Order</button>
         </form>
     </div>

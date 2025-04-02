@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="container mt-4">
-        <h1 class="text-primary mb-4 text-center">&#x1F4E6; All Products</h1> {{-- 📦 Emoji for Box --}}
+        <h1 class="text-primary mb-4 text-center">&#x1F4E6; All Products</h1> 
 
         @if ($message = session('success'))
             <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
@@ -13,6 +13,17 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
+        <script>
+            // Auto-hide alert messages after 3 seconds
+            setTimeout(function() {
+                let alerts = document.querySelectorAll('.alert');
+                alerts.forEach(function(alert) {
+                    alert.style.transition = "opacity 0.5s";
+                    alert.style.opacity = "0";
+                    setTimeout(() => alert.remove(), 500);
+                });
+            }, 2000);
+        </script>
 
         <div class="row">
             @foreach ($products as $product)
@@ -55,12 +66,12 @@
 
     <style>
         .card {
-            height: 100%; /* Ensures all cards have equal height */
+            height: 100%; 
             display: flex;
             flex-direction: column;
         }
         .card-body {
-            flex-grow: 1; /* Ensures content adjusts dynamically */
+            flex-grow: 1; 
             display: flex;
             flex-direction: column;
         }

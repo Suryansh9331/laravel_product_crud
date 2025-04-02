@@ -14,6 +14,18 @@
             </div>
         @endif
 
+        <script>
+            // Auto-hide alert messages after 3 seconds
+            setTimeout(function() {
+                let alerts = document.querySelectorAll('.alert');
+                alerts.forEach(function(alert) {
+                    alert.style.transition = "opacity 0.5s";
+                    alert.style.opacity = "0";
+                    setTimeout(() => alert.remove(), 500);
+                });
+            }, 2000);
+        </script>
+
         @if($cartItems->count() > 0)
             <table class="table table-bordered text-center">
                 <thead class="table-dark">

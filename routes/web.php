@@ -38,6 +38,8 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
     Route::get('/order/{id}', [OrderController::class, 'show'])->name('order.show');
-    Route::get('/orders/summary', [OrderController::class, 'orderSummary'])->name('order.summary');
+    Route::get('/orders/summary', [OrderController::class, 'orderSummary'])->name('order.summary');//order summary after clicking proceed to checkout
      Route::post('/order/place', [OrderController::class, 'placeOrder'])->name('order.place');
 });
+
+require base_path('routes/admin.php');

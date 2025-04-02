@@ -95,6 +95,9 @@ class CartController extends Controller
         }
 
         $cartItem->delete();
-        return redirect()->route('cart.index')->with('success', 'Item removed from cart!');
+        return redirect()->route('cart.index')->with([
+            'message' => 'Product deleted from cart!',
+            'alert-type' => 'danger'
+        ]);
     }
 }
